@@ -1,0 +1,195 @@
+---
+output_dir: "."
+title: "My first notebook"
+author: "Alessia Vitiello"
+date: "11 December 2020"
+bibliography: references.bib
+link-citation: yes
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+---
+
+# This is not a comment in RMarkdown
+<!-- This is a comment, and it is an HTML format -->
+
+
+<!--Heading secotion -->
+
+# Heading 1 {#heading_1}
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+<!-- In line formatting -->
+
+# Inline text formatting
+<!-- to make space between the differen sentences/lines of text, press space-->
+to make text bold use **double asteriks** or __double underscore__
+
+to make italis use *one asterisk* or _one underscore_
+
+to make text superscript use ^caret^
+
+to make text subscript use ~tidle~
+
+to mark text as inline code use `backticks`
+
+to make taxt striketrhrough use ~~double tilde~~
+
+<!-- the symbols have to be attached to the word, otherwise they will be not recognised-->
+
+# Line breaks
+
+   <!--two spaces-->
+   
+\   <!--inverted slash and an empty line after andthen text-->
+
+text here
+\
+
+text here
+
+
+# Links
+
+Link to webpage [link to shared document](https://docs.google.com/document/d/1N8gPLlwWvviLO4S4v5DgsZrafEeV2r4IeHu3KHDrWNc/edit#)
+
+link to headings [here](#heading_1)
+
+
+# Lists
+
+Ordered lists:
+
+1. Item 1
+2. Item 2
+3. Item 3
+4. Item 4
+      a. Item 4a
+      
+      
+If you want your list having sublists (use 4 spaces) as shown before
+\
+
+Task lists:
+
+- [ ] an uncheck item
+- [x] a checked item
+
+
+# Inserting figures
+
+
+![image caption - R Logo](img/download.png)
+
+# Table
+
+|
+
+
+# Blocks
+
+
+> Example of block
+>
+> some text
+
+
+```
+
+print("hello world")
+x <- c(1, 2)
+
+
+````
+
+
+# Table of contents
+
+we need to put the following at the very top of the document
+output:
+  html_document:
+    toc: true
+    
+    
+    toc_depth: 4
+    
+    allows us to see all 4 levels of heading we have at the top of the document
+    
+    
+    toc_float: true
+    
+  allows to have the table of contents at the top left of the document
+  
+  
+
+
+# References example in the text
+
+You will need to prepare a file in a specific format, as the file named references.bib (have a loot at it).
+We need to go again at the top of the documentan (YAML) we type: 
+bibliography: references.bib
+link-citation: yes
+
+
+To cite a paper @cardona2014 and @cardona2019
+
+# References
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

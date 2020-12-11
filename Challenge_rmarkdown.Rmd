@@ -1,0 +1,43 @@
+---
+title: "1,500 Scientists lift the lid on reproducibility"
+output: html_document
+Aurthor: "Monya Baker"
+date: 25 May 2016
+---
+
+\
+
+## Survey shed ligth on the 'crsis'  rocking research.
+\
+
+ 
+**The text starts with a sentence in bold**. And there is more text with at some point a word in italis that is *Nature*. After the paragraph theere is some space.
+\
+
+The second paragraph starts and goes on......
+
+
+![](img/reproducibility-graphic-online1.jpeg)
+
+
+
+## The Survey
+
+
+In the survey[^1] respondents were asked to rate 11 different approaches to improving reproducibilty in science. Below is the list order by the most highly rated:
+
+[^1]: The survey can be downloaded [here](https://ac812.github.io/reproducibility-training/example2.html)
+
+
+
+* Better understanding of statistics
+* Better mentoring/supervision
+* More robust design
+* Better teaching
+* More within-lab validation
+* Incentives for better practice
+* Incentives for formal reproduction
+* More external-lab validation
+* More time for mentoring
+* Journals enforcing standards
+* More time checking notebooks

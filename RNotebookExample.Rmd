@@ -1,0 +1,106 @@
+---
+output_dir: "."
+title: "RNotebookExample"
+output: html_document
+---
+
+```{r load-data and tidy-dataset, message=FALSE}
+#load library
+library(tidyverse)
+library(kableExtra) #used fro the kbl()
+library(rmarkdown)
+library(ggpubr) #used for ggarrange()
+
+#load the file and save it in an object
+pop_data <- read_csv("data/gapminder_data.csv")
+
+# tranform your data to shorten the file
+# creata a table with data for european countries in 2007 - ordered by life expectancy
+
+euro_data_tbl <- pop_data %>% 
+  filter(continent == "Europe" & year == 2007) %>% 
+  select(-continent, -year) %>% 
+  arrange(desc(lifeExp)) %>% 
+  rename(Country = country, "Population sze" = pop, "Life expectancy" = lifeExp, "GDP" = gdpPercap)
+
+```
+
+
+o show results in a table we use the kbl() function from the [library(kableExtra)](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+
+The results in euro_data_tbl are dsplayed in the table below:
+
+```{r kbl}
+euro_data_tbl %>% 
+  kbl() %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+
+
+```
+
+
+If you have a very long table to display, the best way would be to use pagination where the contents of the table are split into multiple tabs. The function paged_table in the rmarkdown library can be used to do this. It is also very simple to use.
+
+Create a new R code chunk called paged-table and use the paged_table() function to display the euro_data_tbl table as follows:
+
+```{r paged-table}
+paged_table(euro_data_tbl)
+
+```
+
+
+# Adding images
+
+
+
+Next, the life expectancy in Europe is observed across different years.  The aim of this is to check if there was a change in life expectancy over the years.  The data used for the life expectancy over the years analysis is the gapminder data and the following data manipulation was performed:
+
+```{r fig-data}
+#keep on European data and change year to factor
+euro_data_fig <- pop_data %>% 
+  filter(continent == "Europe") %>% 
+  mutate(year=as_factor(year))
+
+
+```
+
+The life expectancy for Europe over the years is plotted as following:
+
+
+```{r fig, warning=FALSE, fig.cap="Life Expectancy in Europe over the years"}
+#Euro plot
+euro_plot <- euro_data_fig %>%
+                ggplot(mapping=aes(x=year, y=lifeExp)) +
+                geom_violin() +
+                stat_summary(fun.y = median, geom = "point")
+
+#draw euro plot
+euro_plot
+
+```
+
+
+# Make images with multiple panels
+
+
+```{r fig with panels}
+#Uk data fig
+
+uk_data_fig <- pop_data %>% 
+  filter(country == "United Kingdom") %>% 
+  mutate(year=as_factor(year))
+
+# fig-composition
+
+uk_plot <- uk_data_fig %>% 
+  ggplot(aes(x=year, y=lifeExp))+
+  geom_point()
+
+ggarrange(euro_plot, uk_plot, ncol = 2, nrow = 1, labels = "AUTO")
+
+```
+
+
+
+
